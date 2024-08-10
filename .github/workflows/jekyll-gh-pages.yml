@@ -28,17 +28,19 @@ jobs:
       
       - name: Install dependencies
         run: |
+          cd meu-site # Acesse a pasta onde o Gemfile está localizado
           bundle config set path 'vendor/bundle'
           bundle install
       
       - name: Build site with Jekyll
         run: |
+          cd meu-site # Certifique-se de estar na pasta correta
           bundle exec jekyll build --destination _site
       
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: meu-site/_site # Caminho ajustado para a subpasta _site
 
   deploy:
     runs-on: ubuntu-latest
