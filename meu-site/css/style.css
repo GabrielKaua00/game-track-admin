@@ -1,22 +1,79 @@
+/* Estilo geral */
 body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
+    background-color: #121212; /* Cor de fundo escura */
+    color: #ffffff; /* Cor do texto branco */
+    font-family: 'Roboto', sans-serif; /* Fonte moderna e limpa */
     margin: 0;
     padding: 0;
+    line-height: 1.6; /* Espaçamento de linha mais confortável */
 }
 
+/* Títulos */
 h1, h2, h3 {
-    color: #ff6347;
+    color: #00ffcc; /* Cor neon verde-água */
+    font-weight: 300; /* Peso leve para um estilo mais futurista */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Sombra de texto para efeito neon */
 }
 
+/* Links */
 a {
-    color: #1e90ff;
+    color: #1e90ff; /* Cor neon azul */
     text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave para efeitos */
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #00ffcc; /* Cor neon verde-água ao passar o mouse */
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.9); /* Efeito neon mais intenso ao passar o mouse */
 }
 
-/* Outros estilos gerais... */
+/* Estilo dos botões */
+button {
+    background-color: #1e90ff; /* Cor de fundo azul neon */
+    color: #ffffff; /* Texto branco */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+}
+
+button:hover {
+    background-color: #00ffcc; /* Cor de fundo verde-água ao passar o mouse */
+    transform: scale(1.05); /* Aumenta um pouco o botão ao passar o mouse */
+}
+
+/* Estilo das caixas de entrada e áreas de texto */
+input, textarea {
+    background-color: #1e1e1e; /* Cor de fundo escura */
+    color: #ffffff; /* Texto branco */
+    border: 1px solid #333333; /* Borda escura */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    width: 100%; /* Largura completa */
+    box-sizing: border-box; /* Inclui a borda e o padding na largura total */
+}
+
+input:focus, textarea:focus {
+    border-color: #00ffcc; /* Borda verde-água ao focar */
+    outline: none; /* Remove o contorno padrão ao focar */
+}
+
+/* Estilo das seções e containers */
+.container {
+    max-width: 1200px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 20px; /* Espaçamento interno */
+}
+
+.section {
+    margin-bottom: 40px; /* Espaçamento inferior entre seções */
+}
+
+/* Outros estilos */
+img {
+    max-width: 100%; /* Imagens responsivas */
+    height: auto; /* Mantém a proporção das imagens */
+}
