@@ -1,17 +1,20 @@
-const express = require('express');
-const router = express.Router();
-const { generatePixQRCode } = require('../utils/pix');
+const { MongoClient } = require('mongodb');
 
-// Rota para gerar QR Code PIX
-router.post('/generate-pix-qr-code', async (req, res) => {
-    const { pixKey, amount } = req.body;
+// Substitua pela sua string de conexão
+const uri = 'mongodb+srv://gabrielkauaresende2021:xA9qoITLv1F4deXm@cluster0.oi6gv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+async function run() {
     try {
-        const qrCodeUrl = await generatePixQRCode(pixKey, amount);
-        res.json({ qrCodeUrl });
-    } catch (error) {
-        res.status(500).json({ error: 'Erro ao gerar QR Code PIX' });
+        await client.connect();
+        console.log('Conectado ao MongoDB com sucesso!');
+        // Você pode adicionar código aqui para interagir com o banco de dados
+    } catch (err) {
+        console.error('Erro ao conectar ao MongoDB:', err);
+    } finally {
+        await client.close();
     }
-});
+}
 
-module.exports = router;
+run().catch(console.dir);
