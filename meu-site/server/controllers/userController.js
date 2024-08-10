@@ -2,25 +2,18 @@ const User = require('../models/User');
 
 exports.getUserProfile = async (req, res) => {
     try {
-        const user = await User.findById(req.user.id).select('-password');
+        const user = await User.findById(req.params.id);
         res.json(user);
     } catch (err) {
-        res.status(500).json({ message: 'Erro no servidor' });
+        res.status(500).send('Erro ao buscar perfil');
     }
 };
 
 exports.updateUserProfile = async (req, res) => {
     try {
-        const user = await User.findById(req.user.id);
-        user.username = req.body.username || user.username;
-
-        if (req.body.password) {
-            user.password = req.body.password;
-        }
-
-        await user.save();
-        res.json({ message: 'Perfil atualizado com sucesso' });
+        await User.findByIdAndUpdate(req.params.id, req.body);
+        res.send('Perfil atualizado');
     } catch (err) {
-        res.status(500).json({ message: 'Erro no servidor' });
+        res.status(500).send('Erro ao atualizar perfil');
     }
 };

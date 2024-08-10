@@ -1,24 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
+const authRoutes = require('./routes/authRoutes');
+const gameRoutes = require('./routes/gameRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 const userRoutes = require('./routes/userRoutes');
 
-// Definir rotas
-router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
-});
-
-router.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'login.html'));
-});
-
-router.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'register.html'));
-});
-
-// Incluir rotas de usuário
-router.use('/api/users', userRoutes);
-
-// Outras rotas...
+router.use('/auth', authRoutes);
+router.use('/games', gameRoutes);
+router.use('/admin', adminRoutes);
+router.use('/users', userRoutes);
 
 module.exports = router;
