@@ -28,7 +28,7 @@ jobs:
       
       - name: Install dependencies
         run: |
-          cd meu-site # Acesse a pasta onde o Gemfile está localizado
+          cd meu-site # Acessa a pasta onde o Gemfile está localizado
           bundle config set path 'vendor/bundle'
           bundle install
       
