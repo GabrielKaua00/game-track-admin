@@ -1,0 +1,27 @@
+.auth-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6347;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* Outros estilos específicos para autenticação... */

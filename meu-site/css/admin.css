@@ -1,0 +1,21 @@
+.admin-header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+.admin-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.admin-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.admin-menu li a {
+    color: #ff6347;
+}
+
+/* Outros estilos específicos para a área administrativa... */

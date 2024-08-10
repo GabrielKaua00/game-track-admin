@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Perfil do Usuário</h1>
+    </header>
+    <main>
+        <p>Bem-vindo, <span id="username">Usuário</span>!</p>
+        <button id="load-profile">Carregar Perfil</button>
+        <!-- Mais conteúdo do perfil -->
+    </main>
+    <script>
+        document.querySelector("#load-profile").addEventListener("click", function() {
+            fetch('/api/users/profile', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector("#username").textContent = data.username;
+            })
+            .catch(error => console.error('Erro ao carregar perfil:', error));
+        });
+    </script>
+</body>
+</html>
