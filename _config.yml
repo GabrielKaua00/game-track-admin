@@ -1,3 +1,5 @@
 # _config.yml
-baseurl: "" # Por padrão, defina como vazio
-url: "" # Por padrão, defina como vazio
+title: My Awesome Site
+description: This is a description of my awesome site.
+baseurl: "/game-track-admin"
+url: "https://gabrielkaua00.github.io" # Por padrão, defina como vazio
