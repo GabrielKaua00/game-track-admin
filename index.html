@@ -1,23 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
-    <link rel="stylesheet" href="meu-site/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Link para o script de QR Code -->
+    <script src="../js/qrcode.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>Bem-vindo ao Game Track Admin</h1>
+        <h1>Bem-vindo ao Game Track </h1>
     </header>
     <main>
-        <p>Acompanhe seus jogos e créditos em tempo real.</p>
-        <img id="pix-qr-code" src="" alt="QR Code PIX" />
-<input type="number" id="amount-input" placeholder="Valor em reais" />
-<button id="generate-pix-button">Gerar QR Code PIX</button>
+        <p>Acompanhe seus jogos em tempo real.</p>
 
+        <!-- Entrada de valor para gerar QR Code PIX -->
+        <input type="number" id="amount-input" placeholder="Valor em reais" />
+        <button id="generate-pix-button">Gerar QR Code PIX</button>
+        <div id="qrcode"></div>
     </main>
-    <script src="meu-site/js/main.js"></script>
+
+    <!-- Script para gerar o QR Code PIX -->
+    <script src="../js/main.js"></script>
     <script type="module" src="../firebase.js"></script>
+    
+    <script>
+        document.getElementById('generate-pix-button').addEventListener('click', function() {
+            var amount = document.getElementById('amount-input').value;
+            if (amount.trim() !== "") {
+                // Limpa o QR Code anterior
+                document.getElementById("qrcode").innerHTML = "";
+                // Gera um novo QR Code PIX (ou qualquer outro texto relacionado)
+                new QRCode(document.getElementById("qrcode"), {
+                    text: "Valor: R$" + amount,
+                    width: 128,
+                    height: 128
+                });
+            } else {
+                alert("Por favor, insira um valor válido.");
+            }
+        });
+    </script>
 </body>
 </html>
