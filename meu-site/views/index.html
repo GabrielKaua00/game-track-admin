@@ -15,8 +15,9 @@
     <main>
         <p>Acompanhe seus jogos em tempo real.</p>
 
-        <!-- Entrada de valor para gerar QR Code PIX -->
+        <!-- Entrada de valor e chave PIX para gerar o QR Code -->
         <input type="number" id="amount-input" placeholder="Valor em reais" />
+        <input type="text" id="pix-key" placeholder="Chave PIX" />
         <button id="generate-pix-button">Gerar QR Code PIX</button>
         <div id="qrcode"></div>
     </main>
@@ -28,17 +29,23 @@
     <script>
         document.getElementById('generate-pix-button').addEventListener('click', function() {
             var amount = document.getElementById('amount-input').value;
-            if (amount.trim() !== "") {
+            var pixKey = document.getElementById('pix-key').value;
+
+            if (amount.trim() !== "" && pixKey.trim() !== "") {
                 // Limpa o QR Code anterior
                 document.getElementById("qrcode").innerHTML = "";
-                // Gera um novo QR Code PIX (ou qualquer outro texto relacionado)
+
+                // Cria o payload PIX
+                var pixPayload = `00020126360014BR.GOV.BCB.PIX0114${pixKey}0218${amount}5405BRL5802BR5913${pixKey}6009SAO PAULO62070503***6304`;
+
+                // Gera o QR Code PIX
                 new QRCode(document.getElementById("qrcode"), {
-                    text: "Valor: R$" + amount,
+                    text: pixPayload,
                     width: 128,
                     height: 128
                 });
             } else {
-                alert("Por favor, insira um valor válido.");
+                alert("Por favor, insira um valor e uma chave PIX válidos.");
             }
         });
     </script>
