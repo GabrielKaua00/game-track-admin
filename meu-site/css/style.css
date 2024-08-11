@@ -101,3 +101,7 @@ img {
     max-width: 100%; /* Imagens responsivas */
     height: auto; /* Mantém a proporção das imagens */
 }
+
+#qrcode {
+    margin-top: 20px;
+}
